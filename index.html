@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Simple Online Store</title>
+
+<style>
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.balance {
+    font-size: 20px;
+    margin-top: 10px;
+    color: lightgreen;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    flex: 1;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.price {
+    color: green;
+    font-weight: bold;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background: black;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: gray;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+    color: white;
+}
+
+/* Уведомление */
+#message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: black;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: none;
+    opacity: 0;
+    transition: 0.3s;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Simple Online Store</h1>
+    <p>Buy products easily</p>
+    <div class="balance">Balance: $<span id="balance">10000</span></div>
+</header>
+
+<!-- уведомление -->
+<div id="message">Product purchased!</div>
+
+<div class="container">
+<div class="products">
+
+<div class="card">
+<img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/386a7cfe-b2a6-5926-a53f-6264223246e5/aa3dc1bd-a26e-5fe1-a459-367fb692f848.jpg">
+<h3>Сhair</h3>
+<p class="price">$50</p>
+<button onclick="buyProduct(100)">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/a754b8c3-f6d6-524f-8977-4a6e34e6362a/62ed12ac-27c5-504b-8fa4-95f41e163466.jpg">
+<h3>Armchair</h3>
+<p class="price">$150</p>
+<button onclick="buyProduct(200)">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://luxmood.ca/wp-content/uploads/2022/08/Luxmood-Furniture-Puffy-17.jpg">
+<h3>Sofa</h3>
+<p class="price">$400</p>
+<button onclick="buyProduct(300)">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://api.cabinet.smart-market.uz/uploads/images/ff808181203ee401541c4dbf">
+<h3>Table</h3>
+<p class="price">$100</p>
+<button onclick="buyProduct(400)">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/5f61119b-d51e-5ecd-9942-121dc952df18/705d5fd5-e82a-512f-97bf-433a1c1697ea.jpg">
+<h3>Stool</h3>
+<p class="price">$30</p>
+<button onclick="buyProduct(500)">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/b9ca284f-8a04-50e1-b930-33ddcee4f588/416cb740-10da-59f3-bde4-95b0df5b523c.jpg">
+<h3>Bed</h3>
+<p class="price">$500</p>
+<button onclick="buyProduct(600)">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/6d262e34-26e5-5bdc-a7d6-23806d74d3ba/db896658-ebf4-598b-8bf5-1c30b01da4b8.jpg">
+<h3>Wardrobe</h3>
+<p class="price">$700</p>
+<button onclick="buyProduct(700)">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://lyonscrafted.com/cdn/shop/files/P1300554_1800x.jpg?v=1735710605">
+<h3>Shelf</h3>
+<p class="price">$25</p>
+<button onclick="buyProduct(800)">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/76a59154-477a-52fc-8d79-1026d6e46c07/a92ea09e-dc28-5bef-a960-d150baf0dc20.jpg">
+<h3>Pedestal</h3>
+<p class="price">$40</p>
+<button onclick="buyProduct(900)">Buy</button>
+</div>
+
+<div class="card">
+<img src="https://d2u1z1lopyfwlx.cloudfront.net/thumbnails/0c18eb98-b1bc-5610-ba78-72181a0c6d87/0ce03cc7-52bf-53c3-8213-1c6b268f4007.jpg">
+<h3>Lamp</h3>
+<p class="price">$35</p>
+<button onclick="buyProduct(1000)">Buy</button>
+</div>
+
+</div>
+</div>
+
+<footer>
+<p>© 2026 Simple Store</p>
+</footer>
+
+<script>
+let balance = 10000;
+
+function buyProduct(price) {
+    if (balance >= price) {
+        balance -= price;
+        document.getElementById("balance").textContent = balance;
+
+        let msg = document.getElementById("message");
+        msg.style.display = "block";
+        msg.style.opacity = "1";
+
+        setTimeout(() => {
+            msg.style.opacity = "0";
+            setTimeout(() => {
+                msg.style.display = "none";
+            }, 300);
+        }, 1500);
+
+    } else {
+        alert("Not enough money!");
+    }
+}
+</script>
+
+</body>
+</html>
